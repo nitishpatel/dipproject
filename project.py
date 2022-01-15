@@ -88,11 +88,11 @@ with pyvirtualcam.Camera(width=1280, height=720, fps=30) as cam:
         if addOverlay == 'y' and overlayText!="":
             cv2.putText(frame,overlayText,(50, 650), cv2.FONT_HERSHEY_SIMPLEX, 1,(255, 255, 255),2,cv2.LINE_AA)
 
-        # Add Logo to frame
-        logo = cv2.imread('logo.png', -1)
-        logo = cv2.resize(logo, (200, 100))
-        logo = cv2.cvtColor(logo, code=cv2.COLOR_BGR2RGB)
-        frame[0:100, 0:200] = logo
+            # Add Logo to frame
+            logo = cv2.imread('logo.png', -1)
+            logo = cv2.resize(logo, (200, 100))
+            logo = cv2.cvtColor(logo, code=cv2.COLOR_BGR2RGB)
+            frame[0:100, 0:200] = logo
 
         # smooth the webcam image
         # cv2.blur(frame, (3, 3))
@@ -100,13 +100,7 @@ with pyvirtualcam.Camera(width=1280, height=720, fps=30) as cam:
         # Canny edge detection
         # cv2.Canny(frame, 100, 200)
 
-
-
-
-
-         
-
-        frame = cv2.flip(frame, 1)
+        # frame = cv2.flip(frame, 1)
         
         cam.send(frame)
 
